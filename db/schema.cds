@@ -12,6 +12,10 @@ entity Books : managed {
   stock  : Integer;
   price  : Decimal(9,2);
   currency : Currency;
+  change : Integer;
+  comit: Boolean;
+  rewrite: Boolean;
+
 }
 
 entity Authors : managed { 
