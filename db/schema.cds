@@ -14,6 +14,8 @@ entity Books : managed {
   currency : Currency;
   change : Integer;
   comit: Boolean;
+  rewrite: Boolean;
+
 }
 
 entity Authors : managed { 
