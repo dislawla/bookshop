@@ -13,12 +13,13 @@ class CatalogService extends cds.ApplicationService {
 //   }
 
    init(){
-    const {Books} = this.entities;
+    const { Books } = this.entities;
 
     this.after('READ',Books,this.grandDiscount);
 
-    this.on('submitOrder', this.reduceStock);
+    this.on('submitOrder',Books, this.reduceStock);
 
+    console.log('CatalogService initialized'); // Лог при инициализации сервиса
 
     return super.init(); 
    }  
@@ -41,8 +42,6 @@ class CatalogService extends cds.ApplicationService {
             return req.error(400, 'Quantity must be at least 1');  
         }
 
-        let stock = 10;
-
-        return {stock};
+        return 10;
     }
 }

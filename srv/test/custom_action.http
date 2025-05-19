@@ -5,7 +5,9 @@
 # Get Service Metadata Document
 GET {{baseUrl}}/cat/$metadata
 
-
+### ------------------------------------------------------------------------
+# Get all books
+GET {{baseUrl}}/cat/Books
 
 ### ------------------------------------------------------------------------
 # Retrieve the ID of the book with the title 'Faust'
