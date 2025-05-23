@@ -22,7 +22,7 @@ POST {{baseUrl}}/cat/submitOrder
 Content-Type: application/json
 
 {
-  "book": "{{bookID}}",
+  "bookID": "{{bookID}}",
   "quantity": 2
 }
 

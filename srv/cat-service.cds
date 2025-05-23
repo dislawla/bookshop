@@ -7,7 +7,7 @@ service CatalogService @(path: '/cat') {
     author.name as author
   } excluding { createdBy, modifiedBy };
 
-  action submitOrder (book: Books:ID, quantity: Integer)returns{
+  action submitOrder (bookID: Books:ID, quantity: Integer)returns{
      stock: Books:stock
   };
 }
