@@ -30,10 +30,28 @@ Content-Type: application/json
 
 ### ------------------------------------------------------------------------
 # Call the submitOrder action with a quantity of 0 -> error
+@bookID = {{getBookID.response.body.$.value[0].ID}}
 POST {{baseUrl}}/cat/submitOrder
 Content-Type: application/json
 
 {
-  "book": "{{bookID}}",
+  "bookID": "{{bookID}}",
+  "quantity": 2
+}
+
+POST <service_url>/submitOrder?sap-locale=ru
+Content-Type: application/json
+
+{
+  "bookID": "0ec991dc-95c5-4d8f-91e6-f81a92744781",
+  "quantity": 0
+}
+
+POST <service_url>/submitOrder
+Accept-Language: ru
+Content-Type: application/json
+
+{
+  "bookID": "0ec991dc-95c5-4d8f-91e6-f81a92744781",
   "quantity": 0
 }

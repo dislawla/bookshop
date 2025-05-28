@@ -17,6 +17,9 @@ class CatalogService extends cds.ApplicationService{
     this.on ('submitOrder', async req => {
         const {bookID,quantity} = req.data
 
+        if (quantity < 1) {
+          return req.error( 'INVALOD_QUANTITY' );  
+        }
         const n = await UPDATE (Books, bookID)
           .with ({ stock: {'-=': quantity }})
           .where ({ stock: {'>=': quantity }})
@@ -26,7 +29,7 @@ class CatalogService extends cds.ApplicationService{
         if (n > 0) {
           return { message: `Книга оформлена! Заказано: ${quantity} Осталось: ${book.stock}` }
         } else {
-          req.error(409, `${quantity} exceeds stock for book #${book}`)
+          req.error('BOOK_NOTFOUND',[bookID])
         }
       })
 
