@@ -23,14 +23,12 @@ Content-Type: application/json
 
 {
   "bookID": "{{bookID}}",
-  "quantity": 2
+  "quantity": 0
 }
 
-
-
 ### ------------------------------------------------------------------------
-# Call the submitOrder action with a quantity of 0 -> error
 @bookID = {{getBookID.response.body.$.value[0].ID}}
+
 POST {{baseUrl}}/cat/submitOrder
 Content-Type: application/json
 

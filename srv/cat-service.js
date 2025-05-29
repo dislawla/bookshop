@@ -18,7 +18,7 @@ class CatalogService extends cds.ApplicationService{
         const {bookID,quantity} = req.data
 
         if (quantity < 1) {
-          return req.error( 'INVALOD_QUANTITY' );  
+          return req.error('INVALID_QUANTITY');  
         }
         const n = await UPDATE (Books, bookID)
           .with ({ stock: {'-=': quantity }})

@@ -33,6 +33,7 @@ extend Authors with MaagedObject;
 aspect MaagedObject{
   createdAt: Timestamp;
   createdBy: String;
+  
 }
 annotate Books with {
   modifiedAt @odata.etag
