@@ -1,6 +1,10 @@
 namespace sap.capire.bookshop; 
 
-using { Currency, cuid, managed, sap } from '@sap/cds/common';
+using { Currency, 
+        cuid,
+        managed,
+        Country,
+        sap.common.CodeList  } from '@sap/cds/common';
 
 
 entity Books : cuid, managed { 
@@ -8,22 +12,30 @@ entity Books : cuid, managed {
   descr  : localized String(1111);
   author : Association to Authors@mandatory @assert.target;
   genre  : Association to Genres;
-  stock  : Integer default 0;
-  price  : Decimal(9,2);
-  currency : Currency;
-  change : Integer;
-  comit: Boolean;
-  rewrite: Boolean;
+  publCountry: Country;
+  stock  : NoOfBooks;
+  price  : Price;
+  isHardcover : Boolean;
+}
 
+type NoOfBooks : Integer;
+
+type Price{
+  amount: Decimal;
+  currency: Currency;
 }
 
 entity Authors : cuid, { 
   name   : String(111);
   books  : Association to many Books on books.author = $self;
+  epoch  : Association to Epochs;
 }
 
+entity Epochs : CodeList { 
+  key ID: Integer;
+}
 /** Hierarchically organized Code List for Genres */
-entity Genres : cuid, sap.common.CodeList { 
+entity Genres : cuid, CodeList { 
   parent   : Association to Genres;
   children : Composition of many Genres on children.parent = $self;
 }
