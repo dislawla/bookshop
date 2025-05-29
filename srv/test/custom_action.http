@@ -19,6 +19,7 @@ GET {{baseUrl}}/cat/Books?$filter=title eq 'The Raven'
 @bookID = {{getBookID.response.body.$.value[0].ID}}
 
 POST {{baseUrl}}/cat/submitOrder
+Accept-Language:ru
 Content-Type: application/json
 
 {
@@ -46,7 +47,7 @@ Content-Type: application/json
 }
 
 POST <service_url>/submitOrder
-Accept-Language: ru
+
 Content-Type: application/json
 
 {
