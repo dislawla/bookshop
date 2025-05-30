@@ -17,7 +17,7 @@ GET {{baseUrl}}/cat/$metadata
 ### ------------------------------------------------------------------------
 # Get all books with language en
 GET {{baseUrl}}/cat/Books
-Accept-Language: en
+Accept-Language: ru
 
 
 ### ------------------------------------------------------------------------

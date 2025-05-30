@@ -18,7 +18,7 @@ GET {{baseUrl}}/admin/$metadata
 # Get all books with language en
 # with inlined publication country and currency
 GET {{baseUrl}}/admin/Books?$expand=publCountry,price_currency
-Accept-Language: en
+Accept-Language: ru
 
 
 ### ------------------------------------------------------------------------
